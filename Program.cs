@@ -26,23 +26,7 @@ namespace DynamicILEdit
                 }
                 Console.WriteLine(type.FullName);
             }
-
-            foreach (TypeDefinition type in module.Types)
-            {
-                foreach (var meth in type.Methods)
-                {
-                    var name = meth.Name;
-                    if (name == "Main")
-                    {
-                        //1: LDSTR
-                        var body = meth.Body;
-                        foreach (var i in body.Instructions) {
-                            Console.WriteLine(i.ToString());
-                        }
-                    }
-                }
-                Console.WriteLine(type.FullName);
-            }
+            
             module.Write(dir + "\\ClassLibrary2.dll");
             Console.ReadKey();
 
